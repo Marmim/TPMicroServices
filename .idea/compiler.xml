@@ -10,17 +10,21 @@
         <module name="gatway-service" />
         <module name="DonationMS" />
         <module name="discover-service" />
+        <module name="Config-Service" />
         <module name="OrganisationMS" />
         <module name="UserService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Config-server" target="17" />
       <module name="discovery-ms" target="17" />
       <module name="UserMS" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Config-Service" options="-parameters" />
+      <module name="Config-server" options="-parameters" />
       <module name="DonationMS" options="-parameters" />
       <module name="OrganisationMS" options="-parameters" />
       <module name="UserMS" options="-parameters" />

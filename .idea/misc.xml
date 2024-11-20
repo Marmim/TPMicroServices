@@ -12,10 +12,13 @@
         <option value="$PROJECT_DIR$/UserService/pom.xml" />
         <option value="$PROJECT_DIR$/Donation-service/pom.xml" />
         <option value="$PROJECT_DIR$/DonationMS/pom.xml" />
+        <option value="$PROJECT_DIR$/Config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/Config-Service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Config-server/pom.xml" />
         <option value="$PROJECT_DIR$/discovery-ms/pom.xml" />
       </set>
     </option>
