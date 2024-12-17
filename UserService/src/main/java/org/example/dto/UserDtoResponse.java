@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.rest.core.config.Projection;
 
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -20,6 +22,5 @@ public class UserDtoResponse {
     private String name;
     private String password;
     private String email;
-
 
 }
