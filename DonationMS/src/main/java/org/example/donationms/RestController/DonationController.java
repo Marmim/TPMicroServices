@@ -2,40 +2,37 @@ package org.example.donationms.RestController;
 
 import org.example.donationms.Repositories.DonationRepo;
 import org.example.donationms.dto.Donation;
-import org.example.donationms.services.MessageProducer;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.donationms.model.Organisation;
+import org.example.donationms.services.DonationService;
+import org.example.donationms.services.OrganisationRestClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/donations")
 public class DonationController {
-    @Autowired
-    private MessageProducer messageProducer;
 
-    private final DonationRepo donationRepo;
-    public DonationController(DonationRepo donationRepo) {
-        this.donationRepo = donationRepo;
+    private final DonationService donationService;
+
+    public DonationController( DonationService donationService) {
+        this.donationService = donationService;
+
     }
 
-    @PostMapping("/donate")
-    public String donate(@RequestParam String donationDetails) {
-        messageProducer.sendDonationMessage(donationDetails);
-        return "Donation message sent: " + donationDetails;
+    @PostMapping("/give")
+    public ResponseEntity<String> giveDonation(@RequestBody Donation donationRequest) {
+        String response = donationService.makeDonation(donationRequest);
+        return ResponseEntity.ok(response);
     }
-    @GetMapping
-    public List<Donation> getAllDonations() {
-        return donationRepo.findAll();
-    }
-
-    @GetMapping("/organisation/{organisationId}")
-    public List<Donation> getDonationsByOrganisation(@PathVariable Long organisationId) {
-        return donationRepo.findByOrganisationId(organisationId);
-    }
-
-    @PostMapping("/save")
-    public Donation createDonation(@RequestBody Donation donation) {
-        return donationRepo.save(donation);
+    @GetMapping("/donorsOrganizations")
+    public ResponseEntity<List<Map<String, Object>>> getDonorsWithOrganizations() {
+        List<Map<String, Object>> donorsWithOrganizations = donationService.getDonorsWithOrganizations();
+        return ResponseEntity.ok(donorsWithOrganizations);
     }
 }
+
+

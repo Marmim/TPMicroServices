@@ -23,4 +23,6 @@ public class UserDtoResponse {
     private String password;
     private String email;
 
+    public UserDtoResponse(String s) {
+    }
 }

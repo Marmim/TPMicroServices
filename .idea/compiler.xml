@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DonationMS" />
         <module name="discover-service" />
-        <module name="Config-Service" />
+        <module name="ConfigService" />
         <module name="UserService" />
         <module name="Gateway" />
         <module name="gatway-service" />
@@ -19,6 +19,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Config-server" target="17" />
+      <module name="Config-Service" target="17" />
       <module name="discovery-ms" target="17" />
       <module name="UserMS" target="17" />
     </bytecodeTargetLevel>
@@ -27,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Config-Service" options="-parameters" />
       <module name="Config-server" options="-parameters" />
+      <module name="ConfigService" options="-parameters" />
       <module name="DonationMS" options="-parameters" />
       <module name="Gateway" options="-parameters" />
       <module name="OrganisationMS" options="-parameters" />

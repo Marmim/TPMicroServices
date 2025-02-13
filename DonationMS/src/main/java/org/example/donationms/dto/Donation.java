@@ -1,32 +1,79 @@
 package org.example.donationms.dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.example.donationms.model.Organisation;
-import org.example.donationms.model.User;
-
-import java.util.Collection;
-
+import java.time.LocalDateTime;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Donation {
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String donorName;
-    private Double amount;
-    private Long userId;
-    private Long organisationId;
-    @Transient
-    private Organisation organisation;
-    @Transient
-    private User users;
 
+    private String userEmail;
+    private String organizationName;
+    private Long organisationId;
+    private Double amount;
+    private LocalDateTime donationDate = LocalDateTime.now();
+    private Long userId;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getOrganisationId() {
+        return organisationId;
+    }
+
+    public void setOrganisationId(Long organisationId) {
+        this.organisationId = organisationId;
+    }
+
+    // Getters et setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public void setOrganizationName(String organizationName) {
+        this.organizationName = organizationName;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDateTime getDonationDate() {
+        return donationDate;
+    }
+
+    public void setDonationDate(LocalDateTime donationDate) {
+        this.donationDate = donationDate;
+    }
 }

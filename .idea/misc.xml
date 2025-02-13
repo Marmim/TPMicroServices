@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/DonationMS/pom.xml" />
         <option value="$PROJECT_DIR$/Config-server/pom.xml" />
         <option value="$PROJECT_DIR$/Config-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigService/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

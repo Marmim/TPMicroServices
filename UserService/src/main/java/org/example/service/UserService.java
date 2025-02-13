@@ -1,4 +1,4 @@
-package service;
+package org.example.service;
 
 import org.example.dto.UserDtoRequest;
 import org.example.dto.UserDtoResponse;
